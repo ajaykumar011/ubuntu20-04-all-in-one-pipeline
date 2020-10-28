@@ -1,7 +1,7 @@
 pipeline {
     agent none 
     stages {
-        stage('Version Check') {
+        stage('Php Lint') {
             agent { 
                 docker {
                     image 'ajaykumar011/ubuntu20-04-all-in-one' 
@@ -9,9 +9,10 @@ pipeline {
                     }
                 }
             steps {
-                echo 'Hello, All-in-One'
-                sh 'nginx -V'
-                sh 'curl localhost:81'
+                echo 'Hello, Lint check'
+                sh 'nginx -v'
+                sh 'find app/ -name "*.php" -print0 | xargs -0 -n1 php -l'
+
             }
         }
         stage('Example Test') {
