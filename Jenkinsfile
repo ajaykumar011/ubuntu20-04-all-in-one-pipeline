@@ -3,9 +3,11 @@ pipeline {
     stages {
         stage('Version Check') {
             agent { 
-                docker 'ajaykumar011/ubuntu20-04-all-in-one' 
-                args '-v ./app:/app -v ./nginx-phpfpm/nginx-conf:/etc/nginx/conf.d -p 80:80 -p 2222:22'
-                } 
+                docker {
+                    image 'ajaykumar011/ubuntu20-04-all-in-one' 
+                    args '-v ./app:/app -v ./nginx-phpfpm/nginx-conf:/etc/nginx/conf.d -p 80:80 -p 2222:22'
+                    }
+                }
             steps {
                 echo 'Hello, All-in-One'
                 sh 'nginx -V'
