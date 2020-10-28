@@ -5,7 +5,7 @@ pipeline {
             agent { 
                 docker {
                     image 'ajaykumar011/ubuntu20-04-all-in-one' 
-                    args '-v app:/app -p 80:81 -p 2222:22'
+                    args '-v app:/app -p 81:80 -p 2222:22'
                     }
                 }
             steps {
