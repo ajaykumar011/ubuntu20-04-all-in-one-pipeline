@@ -5,7 +5,7 @@ pipeline {
             agent { 
                 docker {
                     image 'ajaykumar011/ubuntu20-04-all-in-one' 
-                    args '-v ./app:/app -v ./nginx-phpfpm/nginx-conf:/etc/nginx/conf.d -p 80:80 -p 2222:22'
+                    args '-v app:/app -p 80:80'
                     }
                 }
             steps {
