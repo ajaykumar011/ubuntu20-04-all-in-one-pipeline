@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Hello, All-in-One'
                 sh 'nginx -V'
-                sh 'curl localhost:80'
+                sh 'curl localhost:81'
             }
         }
         stage('Example Test') {
